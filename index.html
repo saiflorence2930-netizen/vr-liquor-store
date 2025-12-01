@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>V R LIQUOR STORE - Premium Spirits & Beverages</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+        
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        
+        header p {
+            font-size: 1.2rem;
+            color: #f0a500;
+        }
+        
+        nav {
+            background: #0f3460;
+            padding: 1rem;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1.5rem;
+            margin: 0 0.5rem;
+            display: inline-block;
+            transition: background 0.3s;
+            border-radius: 5px;
+        }
+        
+        nav a:hover {
+            background: #f0a500;
+            color: #1a1a2e;
+        }
+        
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23533483" width="1200" height="600"/><path fill="%23f0a500" opacity="0.1" d="M0 300L50 280L100 320L150 290L200 310L250 285L300 305L350 295L400 315L450 288L500 308L550 292L600 312L650 287L700 307L750 293L800 313L850 289L900 309L950 294L1000 314L1050 290L1100 310L1150 296L1200 316V600H0Z"/></svg>');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 5rem 2rem;
+            text-align: center;
+        }
+        
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+        
+        .section {
+            margin-bottom: 4rem;
+        }
+        
+        .section h2 {
+            font-size: 2.5rem;
+            color: #1a1a2e;
+            margin-bottom: 2rem;
+            text-align: center;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+        
+        .section h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: #f0a500;
+        }
+        
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .product-card {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+        
+        .product-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+        
+        .product-card h3 {
+            color: #1a1a2e;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        .product-card p {
+            color: #666;
+        }
+        
+        .features {
+            background: #f8f9fa;
+            padding: 3rem 2rem;
+            border-radius: 10px;
+        }
+        
+        .features ul {
+            list-style: none;
+            max-width: 800px;
+            margin: 2rem auto;
+        }
+        
+        .features li {
+            padding: 1rem;
+            margin: 1rem 0;
+            background: white;
+            border-left: 4px solid #f0a500;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .features li:before {
+            content: '✓';
+            color: #f0a500;
+            font-weight: bold;
+            margin-right: 1rem;
+            font-size: 1.2rem;
+        }
+        
+        .contact {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: white;
+            padding: 3rem 2rem;
+            border-radius: 10px;
+            text-align: center;
+        }
+        
+        .contact h2 {
+            color: white;
+        }
+        
+        .contact h2:after {
+            background: #f0a500;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+        
+        .contact-item {
+            text-align: center;
+        }
+        
+        .contact-item i {
+            font-size: 2rem;
+            color: #f0a500;
+            margin-bottom: 0.5rem;
+        }
+        
+        .contact-item h3 {
+            margin-bottom: 0.5rem;
+            color: #f0a500;
+        }
+        
+        footer {
+            background: #1a1a2e;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: #f0a500;
+            color: #1a1a2e;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-top: 2rem;
+            transition: background 0.3s;
+        }
+        
+        .cta-button:hover {
+            background: #d89400;
+        }
+        
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+            
+            .hero h2 {
+                font-size: 1.8rem;
+            }
+            
+            .products {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🍷 V R LIQUOR STORE</h1>
+        <p>Your Premium Destination for Fine Spirits & Beverages</p>
+    </header>
+    
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#products">Products</a>
+        <a href="#about">About Us</a>
+        <a href="#contact">Contact</a>
+    </nav>
+    
+    <div class="hero" id="home">
+        <h2>Welcome to V R Liquor Store</h2>
+        <p>Discover an exceptional selection of premium wines, spirits, craft beers, and fine beverages. Quality, variety, and service you can trust.</p>
+        <a href="#products" class="cta-button">Explore Our Collection</a>
+    </div>
+    
+    <div class="container">
+        <section class="section" id="products">
+            <h2>Our Premium Selection</h2>
+            <div class="products">
+                <div class="product-card">
+                    <div class="product-icon">🍷</div>
+                    <h3>Fine Wines</h3>
+                    <p>Curated selection of red, white, rosé, and sparkling wines from renowned vineyards worldwide.</p>
+                </div>
+                <div class="product-card">
+                    <div class="product-icon">🥃</div>
+                    <h3>Premium Spirits</h3>
+                    <p>Whiskey, vodka, rum, gin, tequila, and more from top-shelf brands and craft distilleries.</p>
+                </div>
+                <div class="product-card">
+                    <div class="product-icon">🍺</div>
+                    <h3>Craft Beers</h3>
+                    <p>Local and international craft beers, IPAs, lagers, stouts, and seasonal brews.</p>
+                </div>
+                <div class="product-card">
+                    <div class="product-icon">🍾</div>
+                    <h3>Champagne</h3>
+                    <p>Celebrate special moments with our collection of champagne and sparkling wines.</p>
+                </div>
+                <div class="product-card">
+                    <div class="product-icon">🍹</div>
+                    <h3>Mixers & More</h3>
+                    <p>Complete your bar with mixers, garnishes, and cocktail essentials.</p>
+                </div>
+                <div class="product-card">
+                    <div class="product-icon">🎁</div>
+                    <h3>Gift Sets</h3>
+                    <p>Beautifully packaged gift sets perfect for any occasion or celebration.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section features" id="about">
+            <h2>Why Choose V R Liquor Store?</h2>
+            <ul>
+                <li>Wide selection of premium and rare spirits</li>
+                <li>Competitive prices and special offers</li>
+                <li>Knowledgeable and friendly staff</li>
+                <li>Convenient location and hours</li>
+                <li>Expert recommendations for any occasion</li>
+                <li>Regular tastings and special events</li>
+                <li>Gift wrapping and custom gift baskets available</li>
+                <li>Age verification and responsible service</li>
+            </ul>
+        </section>
+        
+        <section class="section contact" id="contact">
+            <h2>Visit Us Today</h2>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div style="font-size: 2rem; margin-bottom: 0.5rem;">📍</div>
+                    <h3>Location</h3>
+                    <p>Visit our store for personalized service</p>
+                </div>
+                <div class="contact-item">
+                    <div style="font-size: 2rem; margin-bottom: 0.5rem;">📞</div>
+                    <h3>Phone</h3>
+                    <p>Call us for inquiries</p>
+                </div>
+                <div class="contact-item">
+                    <div style="font-size: 2rem; margin-bottom: 0.5rem;">🕒</div>
+                    <h3>Hours</h3>
+                    <p>Open 7 days a week</p>
+                </div>
+            </div>
+            <p style="margin-top: 2rem; font-size: 0.9rem; opacity: 0.8;">Must be 21+ to purchase. Please drink responsibly.</p>
+        </section>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 V R LIQUOR STORE. All rights reserved.</p>
+        <p style="margin-top: 0.5rem; font-size: 0.9rem; opacity: 0.7;">Drink Responsibly | Must be 21 or older</p>
+    </footer>
+</body>
+</html>
